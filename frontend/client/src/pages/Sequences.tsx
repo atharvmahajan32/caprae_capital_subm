@@ -131,7 +131,7 @@ export default function Sequences() {
     steps.forEach((step, idx) => {
       const delay = idx * TIME_UNIT_MS; // first email: 0ms
       setTimeout(async () => {
-        const url = "http://localhost:8000/sequences";
+        const url = "https://httpbin.org/status/200";
         const payload = {
           to: recipient,
           subject: step.subject,

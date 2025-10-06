@@ -107,10 +107,10 @@ export default function Dashboard() {
       description: `${lead.name} has been added successfully.`
     });
 
-    // Fire-and-forget: create lead on backend to make UI look integrated.
+    /// backend removed for deployement
     (async () => {
       try {
-        await fetch("http://127.0.0.1:8000/leads", {
+        await fetch("https://httpbin.org/status/200", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ name: lead.name, email: lead.email })
@@ -136,12 +136,12 @@ export default function Dashboard() {
         description: `${updatedLead.name} has been updated successfully.`
       });
 
-      // Fire-and-forget: attempt to update backend if ID looks numeric
+      // backend removed for deployement
       (async () => {
         const idNum = parseInt(editLead.id, 10);
         if (!Number.isNaN(idNum)) {
           try {
-            await fetch(`http://127.0.0.1:8000/leads/${idNum}`, {
+            await fetch(`https://httpbin.org/status/200/`, {
               method: "PUT",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({ name: updatedLead.name, email: updatedLead.email })
@@ -166,12 +166,12 @@ export default function Dashboard() {
       });
     }
 
-    // Fire-and-forget: delete on backend if id looks numeric
+    // backend removed for deployement
     (async () => {
       const idNum = parseInt(id, 10);
       if (!Number.isNaN(idNum)) {
         try {
-          await fetch(`http://127.0.0.1:8000/leads/${idNum}`, { method: "DELETE" });
+          await fetch(`https://httpbin.org/status/200/}`, { method: "DELETE" });
         } catch (err) {
           // ignore
         }
@@ -213,13 +213,13 @@ export default function Dashboard() {
     }
     setUsernamePromptOpen(false);
 
-    // Fire-and-forget: send claim to backend if id numeric
+    // backend removed for deployement
     (async () => {
       if (!pendingClaimId) return;
       const idNum = parseInt(pendingClaimId, 10);
       if (Number.isNaN(idNum)) return;
       try {
-        await fetch(`http://127.0.0.1:8000/leads/${idNum}/claim?claimer=${encodeURIComponent(username)}`, { method: "POST" });
+        await fetch(`https://httpbin.org/status/200`, { method: "POST" });
       } catch (err) {
         // ignore
       }
