@@ -1,6 +1,7 @@
 # Caprae Capital — Local development setup
 
 This repository contains a frontend (React + Vite + TypeScript) and a backend (FastAPI). The steps below explain how to set up and run both parts locally on Windows (PowerShell).
+Note: The frontend is not synced with the backend for deployment purposes
 
 ## Prerequisites
 
